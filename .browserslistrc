@@ -1,0 +1,3 @@
+# WordPress Browserslist Config
+# https://github.com/WordPress/gutenberg/tree/master/packages/browserslist-config
+extends @wordpress/browserslist-config

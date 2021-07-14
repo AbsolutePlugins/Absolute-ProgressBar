@@ -1,0 +1,20 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "script",
+        "ecmaFeatures": {
+        }
+    },
+    "rules": {
+        "eqeqeq": "warn",
+        "semi": "error"
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "globals": {
+        "jQuery": "readonly",
+        "Waypoint": "readonly"
+    }
+}

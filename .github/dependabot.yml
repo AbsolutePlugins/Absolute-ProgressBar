@@ -1,0 +1,27 @@
+# Dependency bot should run weekly on Saturday day-after-night.
+# Dev will check on Sunday for PR If any.
+# A reviewer can by assigned too.
+version: 2
+updates:
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+      time: "00:00"
+      timezone: "Asia/Dhaka"
+    target-branch: "develop"
+    labels:
+      - "Npm Dependencies"
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+      time: "00:00"
+      timezone: "Asia/Dhaka"
+      target-branch: "develop"
+      labels:
+        - "GitHub Actions Dependencies"
