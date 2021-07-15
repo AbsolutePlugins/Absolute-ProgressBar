@@ -15,21 +15,21 @@
   --border-clr: #e6e6e6;
 }
 
-.progress {
+.ab-progress {
   position: relative;
   -webkit-user-select: none;
           user-select: none;
   box-sizing: border-box;
 }
-.progress * {
+.ab-progress * {
   -webkit-user-select: none;
           user-select: none;
   box-sizing: border-box;
 }
-.progress + .progress {
+.ab-progress + .ab-progress {
   margin-top: 20px;
 }
-.progress .progress-indecator {
+.ab-progress .progress-indecator {
   padding-bottom: 7px;
   position: relative;
   margin: 5px 0;
@@ -39,14 +39,14 @@
   font-weight: 400;
   color: #2e2e2e;
 }
-.progress .progress-title {
+.ab-progress .progress-title {
   z-index: 100;
   color: var(--progress-title-clr, var(--clr-white));
   font-family: var(--progress-title-font, var(--font-family));
   font-size: var(--progress-title-fs, 15px);
   font-weight: var(--progress-title-fw, 700);
 }
-.progress .progress-indecator-inner {
+.ab-progress .progress-indecator-inner {
   font-family: var(--progress-font, var(--font-family));
   font-weight: var(--progress-fw, 500);
   font-size: var(--progress-fs, 16px);
@@ -60,7 +60,7 @@
   bottom: 0;
   transform: translateX(-50%);
 }
-.progress .down-arrow {
+.ab-progress .down-arrow {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 7px solid var(--progress-indecator-bg, var(--clr-dark));
@@ -69,17 +69,21 @@
   top: 100%;
   transform: translateX(-50%);
 }
-.progress .progress-bar-wrap {
+.ab-progress .progress-bar-wrap {
   height: var(--progressbar-height, 6px);
   background: var(--progressbar-bg, #f0f0f0);
   border-radius: var(--progressbar-raidus, 6px);
   border: 1px solid var(--progressbar-border, transparent);
 }
-.progress .progress-bar {
+.ab-progress .ab-progress-bar {
   height: var(--progressbar-height, 6px);
   background: var(--progressbar-fill, linear-gradient(to right, var(--clr-pink) 0%, var(--clr-blue) 100%));
   width: 0%;
   border-radius: var(--progressbar-raidus, 6px);
+}
+
+.progress-tooltip {
+  --progress-title-clr: var(--clr-dark);
 }
 
 .progress-inline {
@@ -109,7 +113,7 @@
   bottom: -36px;
   transform: translateX(-100%);
 }
-.progress-inline .progress-bar {
+.progress-inline .ab-progress-bar {
   box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.15);
 }
 /*# sourceMappingURL=progressBar.css.map */

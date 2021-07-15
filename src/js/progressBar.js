@@ -47,7 +47,7 @@
 
 		// Setup.
 
-		self.bar = self.el.find(".progress-bar");
+		self.bar = self.el.find(".ab-progress-bar");
 		self.title = self.el.find(".progress-title");
 		self.indecator = self.el.find(".progress-indecator");
 		self.numWrap = self.indecator.find(".progress-indecator-inner");
@@ -81,7 +81,7 @@
 			}
 
 			if (!self.bar.length) {
-				self.bar = $("<div/>").addClass("progress-bar");
+				self.bar = $("<div/>").addClass("ab-progress-bar");
 				self.indecator.after(self.bar);
 				self.bar.wrap('<div class="progress-bar-wrap"/>');
 			}
