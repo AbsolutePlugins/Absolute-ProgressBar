@@ -21,11 +21,6 @@
 		self.el = $(el);
 
 		const {
-			autoplay = false === self.el.data("autoplay") ? false : true,
-			useWayPoint = false === self.el.data("waypoint") ? false : true,
-			wayPointOffset = self.el.data("waypoint-offset") ||
-				"bottom-in-view",
-			isRtl = "rtl" === document.dir,
 			value = self.el.data("value"),
 			showTitle = true,
 			titleEl = $("<h4/>"),
@@ -33,6 +28,11 @@
 			style = self.el.data("tooltip") ? "tooltip" : "inline",
 			easing = self.el.data("easing") || "swing",
 			duration = self.el.data("duration") || 1500,
+			autoplay = false === self.el.data("autoplay") ? false : true,
+			useWayPoint = false === self.el.data("waypoint") ? false : true,
+			wayPointOffset = self.el.data("waypoint-offset") ||
+				"bottom-in-view",
+			isRtl = "rtl" === document.dir,
 			onInit = function () {},
 			onAnimatinStart = function () {},
 			onProgress = function () {},
@@ -208,4 +208,5 @@
 	$(document).on("ready", function () {
 		$("[data-progress]").progressBar();
 	});
+	
 })(jQuery, window);
