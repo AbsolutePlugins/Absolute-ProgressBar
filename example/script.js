@@ -1,5 +1,8 @@
-$(document).on("ready", function () {
-    $(".testing").progressBar({
-        value: "70",
-    });
-});
+(function($){
+	"use strict";
+	$(document).ready( function () {
+		$('.testing').progressBar({
+			value: "70",
+		});
+	});
+})(jQuery);

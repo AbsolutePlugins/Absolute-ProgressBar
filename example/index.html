@@ -4,22 +4,25 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PorgressBar Example</title>
+	<title>ProgressBar Example</title>
 	<link rel="stylesheet" href="../dist/css/progressBar.min.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	
+
 	<style>
 		.inline .progress-inline:nth-child(1) {
-			--progressbar-fill: linear-gradient(to right, #84FFC9 0%, #AAB2FF 100%);
+			--progressbar-fill: linear-gradient(to right, #84ffc9 0%, #aab2ff 100%);
 		}
+
 		.inline .progress-inline:nth-child(2) {
-			--progressbar-fill: linear-gradient(to right, #4A9B7F 0%, #0A3431 100%);
+			--progressbar-fill: linear-gradient(to right, #4a9b7f 0%, #0a3431 100%);
 		}
+
 		.inline .progress-inline:nth-child(3) {
-			--progressbar-fill: linear-gradient(to right, #7C65A9 0%, #96D4CA 100%);
+			--progressbar-fill: linear-gradient(to right, #7c65a9 0%, #96d4ca 100%);
 		}
+
 		.inline .progress-inline:nth-child(4) {
-			--progressbar-fill: linear-gradient(to right, #8DE9D5 0%, #32C4C0 100%);
+			--progressbar-fill: linear-gradient(to right, #8de9d5 0%, #32c4c0 100%);
 		}
 	</style>
 </head>
@@ -27,10 +30,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 text-center">
-				<h1 class="fw-bold pt-4 pb-4 text-decoration-underline" style="color: #d63384">Absolute PrograssBar</h1>
+				<h1 class="fw-bold pt-4 pb-4 text-decoration-underline" style="color: #d63384">Absolute ProgressBar</h1>
 			</div>
 			<div class="col-12 pt-4">
-				<h2 class="fw-bold pb-4">Basic Prograssbar</h2>
+				<h2 class="fw-bold pb-4">Basic ProgressBar</h2>
 				<div class="basic">
 					<div class="ab-progress" data-progress data-value="70"></div>
 					<div class="ab-progress" data-progress data-value="75"></div>
@@ -40,7 +43,7 @@
 				</div>
 			</div>
 			<div class="col-12 pt-4">
-				<h2 class="fw-bold pt-4 pb-4">Prograssbar Inline</h2>
+				<h2 class="fw-bold pt-4 pb-4">ProgressBar Inline</h2>
 				<div class="inline">
 					<div class="ab-progress" data-progress data-value="70" data-title="HTML5"></div>
 					<div class="ab-progress" data-progress data-value="75" data-title="CSS3"></div>
@@ -50,15 +53,15 @@
 			</div>
 			<div class="col-12 pt-4">
 				<div class="progressbar-tooltip">
-					<h2 class="fw-bold pt-4 pb-4">Prograssbar Toolkit</h2>
+					<h2 class="fw-bold pt-4 pb-4">ProgressBar Toolkit</h2>
 					<div class="ab-progress" data-progress data-tooltip="true" data-value="70" data-title="HTML5"></div>
 					<div class="ab-progress" data-progress data-tooltip="true" data-value="75" data-title="CSS3"></div>
 					<div class="ab-progress" data-progress data-tooltip="true" data-value="90" data-title="JS"></div>
-					<div class="ab-progress" data-progress data-tooltip="true" data-value="90" data-title="WordPress"></div>					
+					<div class="ab-progress" data-progress data-tooltip="true" data-value="90" data-title="WordPress"></div>
 				</div>
 			</div>
 			<div class="col-12 pt-4">
-				<h2 class="fw-bold pt-4 pb-4">Custom Easing 1</h2>				
+				<h2 class="fw-bold pt-4 pb-4">Custom Easing 1</h2>
 				<div class="ab-progress" data-progress data-value="65" data-title="Custom Easing 1" data-easing="easeInBounce"></div>
 				<div class="ab-progress" data-progress data-value="75" data-title="Custom Easing 2" data-easing="easeInBounce"></div>
 				<div class="ab-progress" data-progress data-value="85" data-title="Custom Easing 3" data-easing="easeInBounce"></div>
@@ -78,12 +81,13 @@
 			</div>
 		</div>
 	</div>
-	
 
-	<script src="./jquery.js"></script>
+
+<!--	<script src="./jquery.js"></script>-->
+	<script src="./jquery-3.6.0.min.js"></script>
 	<script src="./jquery.easing.min.js"></script>
 	<script src="./noframework.waypoints.min.js"></script>
-	<script src="../dist/js/progressBar.min.js"></script>
-	<script src="script.js"></script>
+	<script src="./../dist/js/progressBar.min.js"></script>
+	<script src="./script.js"></script>
 </body>
 </html>

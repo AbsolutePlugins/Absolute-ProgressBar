@@ -4,7 +4,7 @@
  * @authorURL https://absoluteplugins.com
  * @version 1.0.0
  * @license GPL-3.0-or-later
- * 
+ *
  */
 
 (function ($, window) {
@@ -12,45 +12,50 @@
 
 	/**
 	 *
-	 * @param {jQuery|HTMLElementClass} el
+	 * @param {$|HTMLElement} el
 	 * @param {Object} opts
 	 */
 	function ProgressBar(el, opts = {}) {
 		const self = this;
-
 		self.el = $(el);
 
+		// noinspection JSValidateTypes
+		/**
+		 * @param {string}[which]
+		 * @return {*}
+		 */
+		const getData = ( which ) => self.el.data( which );
+
 		const {
-			value = self.el.data("value"),
+			value = getData('value'),
 			showTitle = true,
-			titleEl = $("<h4/>"),
-			titleContent = self.el.data("title"),
-			style = self.el.data("tooltip") ? "tooltip" : "inline",
-			easing = self.el.data("easing") || "swing",
-			duration = self.el.data("duration") || 1500,
-			autoplay = false === self.el.data("autoplay") ? false : true,
-			useWayPoint = false === self.el.data("waypoint") ? false : true,
-			wayPointOffset = self.el.data("waypoint-offset") ||
-				"bottom-in-view",
+			titleEl = $('<h4/>'),
+			titleContent = getData('title'),
+			style = getData('tooltip') ? 'tooltip' : 'inline',
+			easing = getData('easing') || 'swing',
+			duration = getData('duration') || 1500,
+			autoplay = false !== getData('autoplay'),
+			useWayPoint = false !== getData('waypoint'),
+			wayPointOffset = getData('waypoint-offset') || 'bottom-in-view',
 			isRtl = "rtl" === document.dir,
 			onInit = function () {},
-			onAnimatinStart = function () {},
+			onAnimationStart = function () {},
 			onProgress = function () {},
 			onAfterProgress = function () {},
 			onComplete = function () {},
 			onError = function () {},
 			onEnd = function () {},
 		} = opts;
-		console.log(autoplay);
-		// Incase invoked directly with options.
-		self.el.addClass("progress-" + style);
+
+		// Incas invoked directly with options.
+		self.el.addClass('progress-' + style);
 
 		// Setup.
 
-		self.bar = self.el.find(".ab-progress-bar");
-		self.title = self.el.find(".progress-title");
-		self.indecator = self.el.find(".progress-indecator");
-		self.numWrap = self.indecator.find(".progress-indecator-inner");
+		self.bar = self.el.find('.ab-progress-bar');
+		self.title = self.el.find('.progress-title');
+		self.indecator = self.el.find(".progress-indicator");
+		self.numWrap = self.indecator.find(".progress-indicator-inner");
 		self.number = self.indecator.find(".percent");
 
 		const init = function () {
@@ -59,13 +64,13 @@
 			}
 
 			if (!self.title.length && showTitle) {
-				self.title = $(titleEl).addClass("progress-title");
+				self.title = $(titleEl).addClass('progress-title');
 				self.title.text(titleContent);
 				self.el.html(self.title);
 			}
 
 			if (!self.indecator.length) {
-				self.indecator = $("<div/>").addClass("progress-indecator");
+				self.indecator = $("<div/>").addClass('progress-indicator');
 				self.title.after(self.indecator);
 			}
 
@@ -73,7 +78,7 @@
 				self.number = $('<span class="percent"></span>');
 				self.number.appendTo(self.indecator);
 
-				self.number.wrap('<div class="progress-indecator-inner"/>');
+				self.number.wrap('<div class="progress-indicator-inner"/>');
 				self.numWrap = self.number.parent();
 				if ("tooltip" === style) {
 					self.number.after('<span class="down-arrow"/>');
@@ -81,13 +86,13 @@
 			}
 
 			if (!self.bar.length) {
-				self.bar = $("<div/>").addClass("ab-progress-bar");
+				self.bar = $("<div/>").addClass('ab-progress-bar');
 				self.indecator.after(self.bar);
 				self.bar.wrap('<div class="progress-bar-wrap"/>');
 			}
 
 			if (isRtl) {
-				self.el.addClass("progress-rtl");
+				self.el.addClass('progress-rtl');
 			}
 
 			if (autoplay) {
@@ -128,8 +133,8 @@
 					duration,
 					easing,
 					start: function () {
-						if ($.isFunction(onAnimatinStart)) {
-							onAnimatinStart.call(self, arguments);
+						if ($.isFunction(onAnimationStart)) {
+							onAnimationStart.call(self, arguments);
 						}
 					},
 					step: function () {
@@ -141,16 +146,13 @@
 						const self2 = this;
 
 						self.progress = self2.Progress;
-
 						self.number.text(
-							(isRtl ? "%#" : "#%").replace(
-								"#",
-								Math.ceil(self2.Progress)
-							)
+							( isRtl ? "%#" : "#%" )
+							.replace("#", Math.ceil( self2.Progress ).toString() )
 						);
 
-						self.bar.css({ width: self2.Progress + "%" });
-						self.numWrap.css({ left: self2.Progress + "%" });
+						self.bar.css( { width: self2.Progress + "%" } );
+						self.numWrap.css( { left: self2.Progress + "%" } );
 
 						if ($.isFunction(onAfterProgress)) {
 							onAfterProgress.call(self, arguments);
@@ -183,8 +185,8 @@
 		 * Stops the animation
 		 * @see https://api.jquery.com/stop/
 		 *
-		 * @param {boolean=false} clearQueue
-		 * @param {boolean=false} jumpToEnd
+		 * @param {boolean=false} [clearQueue]
+		 * @param {boolean=false} [jumpToEnd]
 		 */
 		self.stop = function (clearQueue = false, jumpToEnd = false) {
 			if (!self.stopped) {
@@ -204,9 +206,10 @@
 			$(this).data("progressBar", progressBar);
 		});
 	};
+
 	// Auto init with data attribute.
-	$(document).on("ready", function () {
+	$(document).ready( function () {
 		$("[data-progress]").progressBar();
-	});
-	
+	} );
+
 })(jQuery, window);

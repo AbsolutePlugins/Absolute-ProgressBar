@@ -3,15 +3,16 @@
  * @author: AbsolutePlugins
  * @authorURL https://absoluteplugins.com
  * @version 1.0.0
- * @license GPL-3.0-or-later 
+ * @license GPL-3.0-or-later
  */
 :root {
+  /* stylelint-disable-next-line */
   --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   --clr-dark: #5f5f5f;
-  --clr-white: #ffffff;
-  --clr-pink: #785AF0;
-  --clr-blue: #148CFA;
-  --clr-light-green: #64F5D2;
+  --clr-white: #fff;
+  --clr-pink: #785af0;
+  --clr-blue: #148cfa;
+  --clr-light-green: #64f5d2;
   --border-clr: #e6e6e6;
 }
 
@@ -29,7 +30,14 @@
 .ab-progress + .ab-progress {
   margin-top: 20px;
 }
-.ab-progress .progress-indecator {
+.ab-progress .progress-title {
+  z-index: 100;
+  color: var(--progress-title-clr, var(--clr-white));
+  font-family: var(--progress-title-font, var(--font-family));
+  font-size: var(--progress-title-fs, 15px);
+  font-weight: var(--progress-title-fw, 700);
+}
+.ab-progress .progress-indicator {
   padding-bottom: 7px;
   position: relative;
   margin: 5px 0;
@@ -39,34 +47,18 @@
   font-weight: 400;
   color: #2e2e2e;
 }
-.ab-progress .progress-title {
-  z-index: 100;
-  color: var(--progress-title-clr, var(--clr-white));
-  font-family: var(--progress-title-font, var(--font-family));
-  font-size: var(--progress-title-fs, 15px);
-  font-weight: var(--progress-title-fw, 700);
-}
-.ab-progress .progress-indecator-inner {
+.ab-progress .progress-indicator-inner {
   font-family: var(--progress-font, var(--font-family));
   font-weight: var(--progress-fw, 500);
   font-size: var(--progress-fs, 16px);
   line-height: 1;
   padding: 8px 8px 7px;
   border-radius: 3px;
-  color: var(--progress-indecator-color, var(--clr-white));
+  color: var(--progress-indicator-color, var(--clr-white));
   margin-bottom: 4px;
-  background: var(--progress-indecator-bg, var(--clr-dark));
+  background: var(--progress-indicator-bg, var(--clr-dark));
   position: absolute;
   bottom: 0;
-  transform: translateX(-50%);
-}
-.ab-progress .down-arrow {
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 7px solid var(--progress-indecator-bg, var(--clr-dark));
-  position: absolute;
-  left: 50%;
-  top: 100%;
   transform: translateX(-50%);
 }
 .ab-progress .progress-bar-wrap {
@@ -75,10 +67,20 @@
   border-radius: var(--progressbar-raidus, 6px);
   border: 1px solid var(--progressbar-border, transparent);
 }
+.ab-progress .down-arrow {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid var(--progress-indicator-bg, var(--clr-dark));
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+}
 .ab-progress .ab-progress-bar {
   height: var(--progressbar-height, 6px);
+  /* stylelint-disable-next-line */
   background: var(--progressbar-fill, linear-gradient(to right, var(--clr-pink) 0%, var(--clr-blue) 100%));
-  width: 0%;
+  width: 0;
   border-radius: var(--progressbar-raidus, 6px);
 }
 
@@ -92,10 +94,10 @@
   --progressbar-border: var(--border-clr);
   --progressbar-fill: linear-gradient(to right, var(--clr-blue) 0%, var(--clr-light-green) 100%);
   --progressbar-raidus: 3px;
-  --progress-fw: var(--font-700);
-  --progress-fs: var(--fs-13);
-  --progress-indecator-color: var(var(--clr-white));
-  --progress-indecator-bg: transparent;
+  --progress-fw: 700;
+  --progress-fs: 13px;
+  --progress-indicator-color: var(var(--clr-white));
+  --progress-indicator-bg: transparent;
 }
 .progress-inline .progress-title {
   position: absolute;
@@ -105,11 +107,11 @@
   padding: 0;
   margin: 0;
 }
-.progress-inline .progress-indecator {
+.progress-inline .progress-indicator {
   margin: 0;
   padding: 0;
 }
-.progress-inline .progress-indecator-inner {
+.progress-inline .progress-indicator-inner {
   bottom: -36px;
   transform: translateX(-100%);
 }

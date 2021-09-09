@@ -13,9 +13,9 @@
 	"declaration-property-unit-allowed-list" : {
 	  "/^animation/": ["s", "ms"],
 	  "font-size": ["px", "em", "rem"],
-	  "line-height": [ '', "px", "em", "rem" ]
+	  "line-height": [ "", "px", "em", "rem" ]
 	},
-	"max-line-length": [ 100 ],
+	"max-line-length": 100,
 	"at-rule-no-unknown": null,
 	"scss/at-rule-no-unknown": true,
 	"at-rule-empty-line-before": null,
