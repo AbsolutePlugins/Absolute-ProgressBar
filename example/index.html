@@ -9,20 +9,11 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 	<style>
-		.inline .progress-inline:nth-child(1) {
-			--progressbar-fill: linear-gradient(to right, #84ffc9 0%, #aab2ff 100%);
-		}
-
-		.inline .progress-inline:nth-child(2) {
-			--progressbar-fill: linear-gradient(to right, #4a9b7f 0%, #0a3431 100%);
-		}
-
-		.inline .progress-inline:nth-child(3) {
-			--progressbar-fill: linear-gradient(to right, #7c65a9 0%, #96d4ca 100%);
-		}
-
-		.inline .progress-inline:nth-child(4) {
-			--progressbar-fill: linear-gradient(to right, #8de9d5 0%, #32c4c0 100%);
+		:root {
+			--clr-lightgreen: linear-gradient(to right, #84ffc9 0%, #aab2ff 100%);
+			--clr-dark-green: linear-gradient(to right, #4a9b7f 0%, #0a3431 100%);
+			--clr-light-pink: linear-gradient(to right, #7c65a9 0%, #96d4ca 100%);
+			--clr-light-lime: linear-gradient(to right, #8de9d5 0%, #32c4c0 100%);
 		}
 	</style>
 </head>
@@ -35,20 +26,20 @@
 			<div class="col-12 pt-4">
 				<h2 class="fw-bold pb-4">Basic ProgressBar</h2>
 				<div class="basic">
-					<div class="ab-progress" data-progress data-value="70"></div>
-					<div class="ab-progress" data-progress data-value="75"></div>
-					<div class="ab-progress" data-progress data-value="90"></div>
-					<div class="ab-progress" data-progress data-value="90"></div>
+					<div class="ab-progress" data-progress data-value="70" data-height="35"></div>
+					<div class="ab-progress" data-progress data-value="75" data-height="35"></div>
+					<div class="ab-progress" data-progress data-value="90" data-height="35"></div>
+					<div class="ab-progress" data-progress data-value="90" data-height="35"></div>
 					<div class="ab-progress testing"></div>
 				</div>
 			</div>
 			<div class="col-12 pt-4">
 				<h2 class="fw-bold pt-4 pb-4">ProgressBar Inline</h2>
 				<div class="inline">
-					<div class="ab-progress" data-progress data-value="70" data-title="HTML5"></div>
-					<div class="ab-progress" data-progress data-value="75" data-title="CSS3"></div>
-					<div class="ab-progress" data-progress data-value="90" data-title="JS"></div>
-					<div class="ab-progress" data-progress data-value="90" data-title="WordPress"></div>
+					<div class="ab-progress" data-progress data-value="70" data-fill="var(--clr-lightgreen)" data-height="35" data-title="HTML5"></div>
+					<div class="ab-progress" data-progress data-value="75" data-fill="var(--clr-dark-green)" data-height="35" data-title="CSS3"></div>
+					<div class="ab-progress" data-progress data-value="90" data-fill="var(--clr-light-pink)" data-height="35" data-title="JS"></div>
+					<div class="ab-progress" data-progress data-value="90" data-fill="var(--clr-light-lime)" data-height="35" data-title="WordPress"></div>
 				</div>
 			</div>
 			<div class="col-12 pt-4">
@@ -62,10 +53,10 @@
 			</div>
 			<div class="col-12 pt-4">
 				<h2 class="fw-bold pt-4 pb-4">Custom Easing 1</h2>
-				<div class="ab-progress" data-progress data-value="65" data-title="Custom Easing 1" data-easing="easeInBounce"></div>
-				<div class="ab-progress" data-progress data-value="75" data-title="Custom Easing 2" data-easing="easeInBounce"></div>
-				<div class="ab-progress" data-progress data-value="85" data-title="Custom Easing 3" data-easing="easeInBounce"></div>
-				<div class="ab-progress" data-progress data-value="45" data-title="Custom Easing 4" data-easing="easeInBounce"></div>
+				<div class="ab-progress" data-progress data-value="65" data-height="35" data-title="Custom Easing 1" data-easing="easeInBounce"></div>
+				<div class="ab-progress" data-progress data-value="75" data-height="35" data-title="Custom Easing 2" data-easing="easeInBounce"></div>
+				<div class="ab-progress" data-progress data-value="85" data-height="35" data-title="Custom Easing 3" data-easing="easeInBounce"></div>
+				<div class="ab-progress" data-progress data-value="45" data-height="35" data-title="Custom Easing 4" data-easing="easeInBounce"></div>
 			</div>
 			<div class="col-12 pt-4">
 				<h2 class="fw-bold pt-4 pb-4">Custom Easing 2</h2>

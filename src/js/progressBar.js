@@ -24,19 +24,24 @@
 		 * @param {string}[which]
 		 * @return {*}
 		 */
-		const getData = ( which ) => self.el.data( which );
+		const getData = (which) => self.el.data(which);
 
 		const {
-			value = getData('value'),
+			value = getData("value"),
 			showTitle = true,
-			titleEl = $('<h4/>'),
-			titleContent = getData('title'),
-			style = getData('tooltip') ? 'tooltip' : 'inline',
-			easing = getData('easing') || 'swing',
-			duration = getData('duration') || 1500,
-			autoplay = false !== getData('autoplay'),
-			useWayPoint = false !== getData('waypoint'),
-			wayPointOffset = getData('waypoint-offset') || 'bottom-in-view',
+			titleEl = $("<h4/>"),
+			titleContent = getData("title"),
+			radius = getData("radius") || "6",
+			height = getData("height") || "6",
+			bg = getData("bg") || "transparent",
+			fill = getData("fill") || "linear-gradient(to left, #148cfa, #64f5d2)",
+			border = getData("border") || "#eee",
+			style = getData("tooltip") ? "tooltip" : "inline",
+			easing = getData("easing") || "swing",
+			duration = getData("duration") || 1500,
+			autoplay = false !== getData("autoplay"),
+			useWayPoint = false !== getData("waypoint"),
+			wayPointOffset = getData("waypoint-offset") || "bottom-in-view",
 			isRtl = "rtl" === document.dir,
 			onInit = function () {},
 			onAnimationStart = function () {},
@@ -48,12 +53,12 @@
 		} = opts;
 
 		// Incas invoked directly with options.
-		self.el.addClass('progress-' + style);
+		self.el.addClass("progress-" + style);
 
 		// Setup.
 
-		self.bar = self.el.find('.ab-progress-bar');
-		self.title = self.el.find('.progress-title');
+		self.bar = self.el.find(".ab-progress-bar");
+		self.title = self.el.find(".progress-title");
 		self.indecator = self.el.find(".progress-indicator");
 		self.numWrap = self.indecator.find(".progress-indicator-inner");
 		self.number = self.indecator.find(".percent");
@@ -64,13 +69,13 @@
 			}
 
 			if (!self.title.length && showTitle) {
-				self.title = $(titleEl).addClass('progress-title');
+				self.title = $(titleEl).addClass("progress-title");
 				self.title.text(titleContent);
 				self.el.html(self.title);
 			}
 
 			if (!self.indecator.length) {
-				self.indecator = $("<div/>").addClass('progress-indicator');
+				self.indecator = $("<div/>").addClass("progress-indicator");
 				self.title.after(self.indecator);
 			}
 
@@ -86,13 +91,14 @@
 			}
 
 			if (!self.bar.length) {
-				self.bar = $("<div/>").addClass('ab-progress-bar');
+				self.bar = $("<div/>").addClass("ab-progress-bar");
 				self.indecator.after(self.bar);
 				self.bar.wrap('<div class="progress-bar-wrap"/>');
+				self.wrap = self.el.find(".progress-bar-wrap");
 			}
 
 			if (isRtl) {
-				self.el.addClass('progress-rtl');
+				self.el.addClass("progress-rtl");
 			}
 
 			if (autoplay) {
@@ -147,12 +153,28 @@
 
 						self.progress = self2.Progress;
 						self.number.text(
-							( isRtl ? "%#" : "#%" )
-							.replace("#", Math.ceil( self2.Progress ).toString() )
+							(isRtl ? "%#" : "#%").replace(
+								"#",
+								Math.ceil(self2.Progress).toString()
+							)
 						);
 
-						self.bar.css( { width: self2.Progress + "%" } );
-						self.numWrap.css( { left: self2.Progress + "%" } );
+						self.bar.css({
+							width: self2.Progress + "%",
+							"--progressbar-raidus": radius + "px",
+							"--progressbar-height": height + "px",
+							"--progressbar-fill": fill,
+							"--progressbar-border": border,
+						});
+
+						self.wrap.css({
+							"--progressbar-raidus": radius + "px",
+							"--progressbar-height": height + "px",
+							"--progressbar-bg": bg ,
+							"--progressbar-border": border,
+						});
+
+						self.numWrap.css({ left: self2.Progress + "%" });
 
 						if ($.isFunction(onAfterProgress)) {
 							onAfterProgress.call(self, arguments);
@@ -208,8 +230,7 @@
 	};
 
 	// Auto init with data attribute.
-	$(document).ready( function () {
+	$(document).ready(function () {
 		$("[data-progress]").progressBar();
-	} );
-
+	});
 })(jQuery, window);

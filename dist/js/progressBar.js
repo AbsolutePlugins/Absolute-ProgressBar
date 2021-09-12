@@ -26,25 +26,35 @@
     const getData = which => self.el.data(which);
 
     const _opts$value = opts.value,
-          value = _opts$value === void 0 ? getData('value') : _opts$value,
+          value = _opts$value === void 0 ? getData("value") : _opts$value,
           _opts$showTitle = opts.showTitle,
           showTitle = _opts$showTitle === void 0 ? true : _opts$showTitle,
           _opts$titleEl = opts.titleEl,
-          titleEl = _opts$titleEl === void 0 ? $('<h4/>') : _opts$titleEl,
+          titleEl = _opts$titleEl === void 0 ? $("<h4/>") : _opts$titleEl,
           _opts$titleContent = opts.titleContent,
-          titleContent = _opts$titleContent === void 0 ? getData('title') : _opts$titleContent,
+          titleContent = _opts$titleContent === void 0 ? getData("title") : _opts$titleContent,
+          _opts$radius = opts.radius,
+          radius = _opts$radius === void 0 ? getData("radius") || "6" : _opts$radius,
+          _opts$height = opts.height,
+          height = _opts$height === void 0 ? getData("height") || "6" : _opts$height,
+          _opts$bg = opts.bg,
+          bg = _opts$bg === void 0 ? getData("bg") || "transparent" : _opts$bg,
+          _opts$fill = opts.fill,
+          fill = _opts$fill === void 0 ? getData("fill") || "linear-gradient(to left, #148cfa, #64f5d2)" : _opts$fill,
+          _opts$border = opts.border,
+          border = _opts$border === void 0 ? getData("border") || "#eee" : _opts$border,
           _opts$style = opts.style,
-          style = _opts$style === void 0 ? getData('tooltip') ? 'tooltip' : 'inline' : _opts$style,
+          style = _opts$style === void 0 ? getData("tooltip") ? "tooltip" : "inline" : _opts$style,
           _opts$easing = opts.easing,
-          easing = _opts$easing === void 0 ? getData('easing') || 'swing' : _opts$easing,
+          easing = _opts$easing === void 0 ? getData("easing") || "swing" : _opts$easing,
           _opts$duration = opts.duration,
-          duration = _opts$duration === void 0 ? getData('duration') || 1500 : _opts$duration,
+          duration = _opts$duration === void 0 ? getData("duration") || 1500 : _opts$duration,
           _opts$autoplay = opts.autoplay,
-          autoplay = _opts$autoplay === void 0 ? false !== getData('autoplay') : _opts$autoplay,
+          autoplay = _opts$autoplay === void 0 ? false !== getData("autoplay") : _opts$autoplay,
           _opts$useWayPoint = opts.useWayPoint,
-          useWayPoint = _opts$useWayPoint === void 0 ? false !== getData('waypoint') : _opts$useWayPoint,
+          useWayPoint = _opts$useWayPoint === void 0 ? false !== getData("waypoint") : _opts$useWayPoint,
           _opts$wayPointOffset = opts.wayPointOffset,
-          wayPointOffset = _opts$wayPointOffset === void 0 ? getData('waypoint-offset') || 'bottom-in-view' : _opts$wayPointOffset,
+          wayPointOffset = _opts$wayPointOffset === void 0 ? getData("waypoint-offset") || "bottom-in-view" : _opts$wayPointOffset,
           _opts$isRtl = opts.isRtl,
           isRtl = _opts$isRtl === void 0 ? "rtl" === document.dir : _opts$isRtl,
           _opts$onInit = opts.onInit,
@@ -62,10 +72,10 @@
           _opts$onEnd = opts.onEnd,
           onEnd = _opts$onEnd === void 0 ? function () {} : _opts$onEnd; // Incas invoked directly with options.
 
-    self.el.addClass('progress-' + style); // Setup.
+    self.el.addClass("progress-" + style); // Setup.
 
-    self.bar = self.el.find('.ab-progress-bar');
-    self.title = self.el.find('.progress-title');
+    self.bar = self.el.find(".ab-progress-bar");
+    self.title = self.el.find(".progress-title");
     self.indecator = self.el.find(".progress-indicator");
     self.numWrap = self.indecator.find(".progress-indicator-inner");
     self.number = self.indecator.find(".percent");
@@ -76,13 +86,13 @@
       }
 
       if (!self.title.length && showTitle) {
-        self.title = $(titleEl).addClass('progress-title');
+        self.title = $(titleEl).addClass("progress-title");
         self.title.text(titleContent);
         self.el.html(self.title);
       }
 
       if (!self.indecator.length) {
-        self.indecator = $("<div/>").addClass('progress-indicator');
+        self.indecator = $("<div/>").addClass("progress-indicator");
         self.title.after(self.indecator);
       }
 
@@ -98,13 +108,14 @@
       }
 
       if (!self.bar.length) {
-        self.bar = $("<div/>").addClass('ab-progress-bar');
+        self.bar = $("<div/>").addClass("ab-progress-bar");
         self.indecator.after(self.bar);
         self.bar.wrap('<div class="progress-bar-wrap"/>');
+        self.wrap = self.el.find(".progress-bar-wrap");
       }
 
       if (isRtl) {
-        self.el.addClass('progress-rtl');
+        self.el.addClass("progress-rtl");
       }
 
       if (autoplay) {
@@ -160,7 +171,17 @@
           self.progress = self2.Progress;
           self.number.text((isRtl ? "%#" : "#%").replace("#", Math.ceil(self2.Progress).toString()));
           self.bar.css({
-            width: self2.Progress + "%"
+            width: self2.Progress + "%",
+            "--progressbar-raidus": radius + "px",
+            "--progressbar-height": height + "px",
+            "--progressbar-fill": fill,
+            "--progressbar-border": border
+          });
+          self.wrap.css({
+            "--progressbar-raidus": radius + "px",
+            "--progressbar-height": height + "px",
+            "--progressbar-bg": bg,
+            "--progressbar-border": border
           });
           self.numWrap.css({
             left: self2.Progress + "%"

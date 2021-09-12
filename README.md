@@ -25,10 +25,28 @@ Absolute ProgressBar a simple lightweight yet configurable jQuery progress bar p
 4. Add markup
 
 ```html
-<div class="progress" data-progress data-value="70" data-title="HTML5"></div>
-<div class="progress" data-progress data-value="75" data-title="CSS3"></div>
-<div class="progress" data-progress data-value="90" data-title="JS"></div>
-<div class="progress" data-progress data-value="90" data-title="WordPress"></div>
+<div class="ab-progress" data-progress data-value="70" data-title="HTML5"></div>
+<div class="ab-progress" data-progress data-value="75" data-title="CSS3"></div>
+<div class="ab-progress" data-progress data-value="90" data-title="JS"></div>
+<div class="ab-progress" data-progress data-value="90" data-title="WordPress"></div>
+```
+
+5. Data Attribute method
+```html
+<div 
+    data-value="" 
+    data-title="" 
+    data-height="6"
+    data-bg="transparent"
+    data-fill="linear-gradient(to right, #148cfa, #64f5d2)"
+    data-border="#eee"
+    data-tooltip="inline"
+    data-duration="1500"
+    data-autoplay="true"
+    data-waypoint="true"
+    data-waypoint-offset="bottom-in-view"
+    data-easing="swing">
+</div>
 ```
 
 6. Optional Scripts
