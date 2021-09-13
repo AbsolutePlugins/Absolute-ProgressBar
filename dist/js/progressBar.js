@@ -37,8 +37,8 @@
           radius = _opts$radius === void 0 ? getData("radius") || "6" : _opts$radius,
           _opts$height = opts.height,
           height = _opts$height === void 0 ? getData("height") || "6" : _opts$height,
-          _opts$bg = opts.bg,
-          bg = _opts$bg === void 0 ? getData("bg") || "transparent" : _opts$bg,
+          _opts$background = opts.background,
+          background = _opts$background === void 0 ? getData("background") || "transparent" : _opts$background,
           _opts$fill = opts.fill,
           fill = _opts$fill === void 0 ? getData("fill") || "linear-gradient(to left, #148cfa, #64f5d2)" : _opts$fill,
           _opts$border = opts.border,
@@ -172,15 +172,15 @@
           self.number.text((isRtl ? "%#" : "#%").replace("#", Math.ceil(self2.Progress).toString()));
           self.bar.css({
             width: self2.Progress + "%",
-            "--progressbar-raidus": radius + "px",
+            "--progressbar-radius": radius + "px",
             "--progressbar-height": height + "px",
             "--progressbar-fill": fill,
             "--progressbar-border": border
           });
           self.wrap.css({
-            "--progressbar-raidus": radius + "px",
+            "--progressbar-radius": radius + "px",
             "--progressbar-height": height + "px",
-            "--progressbar-bg": bg,
+            "--progressbar-background": background,
             "--progressbar-border": border
           });
           self.numWrap.css({

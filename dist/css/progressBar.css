@@ -56,21 +56,21 @@
   border-radius: 3px;
   color: var(--progress-indicator-color, var(--clr-white));
   margin-bottom: 4px;
-  background: var(--progress-indicator-bg, var(--clr-dark));
+  background: var(--progress-indicator-background, var(--clr-dark));
   position: absolute;
   bottom: 0;
   transform: translateX(-50%);
 }
 .ab-progress .progress-bar-wrap {
   height: var(--progressbar-height, 6px);
-  background: var(--progressbar-bg, #f0f0f0);
-  border-radius: var(--progressbar-raidus, 6px);
+  background: var(--progressbar-background, #f0f0f0);
+  border-radius: var(--progressbar-radius, 6px);
   border: 1px solid var(--progressbar-border, transparent);
 }
 .ab-progress .down-arrow {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 7px solid var(--progress-indicator-bg, var(--clr-dark));
+  border-top: 7px solid var(--progress-indicator-background, var(--clr-dark));
   position: absolute;
   left: 50%;
   top: 100%;
@@ -81,7 +81,7 @@
   /* stylelint-disable-next-line */
   background: var(--progressbar-fill, linear-gradient(to right, var(--clr-pink) 0%, var(--clr-blue) 100%));
   width: 0;
-  border-radius: var(--progressbar-raidus, 6px);
+  border-radius: var(--progressbar-radius, 6px);
 }
 
 .progress-tooltip {
@@ -90,14 +90,14 @@
 
 .progress-inline {
   --progressbar-height: 35px;
-  --progressbar-bg: transparent;
+  --progressbar-background: transparent;
   --progressbar-border: var(--border-clr);
   --progressbar-fill: linear-gradient(to right, var(--clr-blue) 0%, var(--clr-light-green) 100%);
-  --progressbar-raidus: 3px;
+  --progressbar-radius: 3px;
   --progress-fw: 700;
   --progress-fs: 13px;
   --progress-indicator-color: var(var(--clr-white));
-  --progress-indicator-bg: transparent;
+  --progress-indicator-background: transparent;
 }
 .progress-inline .progress-title {
   position: absolute;

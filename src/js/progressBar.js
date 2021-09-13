@@ -33,7 +33,7 @@
 			titleContent = getData("title"),
 			radius = getData("radius") || "6",
 			height = getData("height") || "6",
-			bg = getData("bg") || "transparent",
+			background = getData("background") || "transparent",
 			fill = getData("fill") || "linear-gradient(to left, #148cfa, #64f5d2)",
 			border = getData("border") || "#eee",
 			style = getData("tooltip") ? "tooltip" : "inline",
@@ -161,16 +161,16 @@
 
 						self.bar.css({
 							width: self2.Progress + "%",
-							"--progressbar-raidus": radius + "px",
+							"--progressbar-radius": radius + "px",
 							"--progressbar-height": height + "px",
 							"--progressbar-fill": fill,
 							"--progressbar-border": border,
 						});
 
 						self.wrap.css({
-							"--progressbar-raidus": radius + "px",
+							"--progressbar-radius": radius + "px",
 							"--progressbar-height": height + "px",
-							"--progressbar-bg": bg ,
+							"--progressbar-background": background ,
 							"--progressbar-border": border,
 						});
 
